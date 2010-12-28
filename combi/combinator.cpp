@@ -26,7 +26,7 @@ bool inline Combinator::turn_gear( int idx )
 
 bool inline Combinator::switch_gear( int& idx )
 {
-	while( ! turn_gear(idx) )
+	while( ! turn_gear( idx ) )
 		idx += 1;
 
 	return idx < k;

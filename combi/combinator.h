@@ -1,5 +1,5 @@
-#ifndef KOMBINATOR_H
-#define KOMBINATOR_H
+#ifndef COMBINATOR_H
+#define COMBINATOR_H
 
 #include <vector>
 #include <iostream>
@@ -21,5 +21,5 @@ public:
 	bool operator() (vector< int >& v);
 };
 
-#endif // KOMBINATOR_H
+#endif // COMBINATOR_H
 

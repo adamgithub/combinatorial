@@ -27,12 +27,11 @@ int main( int argc, char *argv[] )
 	sstrm << argv[1] << " " << argv[2];
 	sstrm >> k >> n;
 	cout << "k = " << k << " n = " << n << endl;
-
-
-	Combinator cmb( k, n );
-	vector< int > v( k );
-
-	while( cmb(v) )
+	
+	vector< int > v;
+	Combinator cmb( k, n, v );
+	
+	while( cmb.next() )
 		cout << v << endl;
 }
 

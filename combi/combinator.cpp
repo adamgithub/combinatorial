@@ -1,12 +1,9 @@
 #include "combinator.h"
 
-Combinator::Combinator( int k, int n ) : k(k), n(n)
+Combinator::Combinator( int k, int n, vector< int >& gears ) : k(k), n(n), gears(gears)
 {
-	gears.resize( k + 1 );
+	gears.resize( k );
 	reset( k );
-
-	 // Guard
-	gears[ k ] = n;
 
 	// First step
 	gears[ 0 ] = -1;
@@ -32,21 +29,25 @@ bool inline Combinator::switch_gear( int& idx )
 	return idx < k;
 }
 
-bool Combinator::operator() (vector< int >& v)
+bool Combinator::next ()
 {
+	// Guard
+	gears.push_back( n );
+
+	gears.resize( k + 1 );
 	if(! turn_gear(curr_gear) ) {
 		if(! switch_gear( curr_gear ))
 			return false;
-		
+
 		reset( curr_gear );
 	}
 
 	gears[curr_gear] += 1;
 	if( curr_gear > 0 )
 		curr_gear -= 1;
-	
-	for( int i = 0; i < k; ++i )
-		v[i] = gears[i];
+
+	// No guard
+	gears.pop_back();
 	return true;
 }
 

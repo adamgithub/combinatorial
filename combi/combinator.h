@@ -7,7 +7,7 @@ using namespace std;
 
 class Combinator {
 public:
-	vector< int > gears;
+	vector< int >& gears;
 	int curr_gear;
 	int k;
 	int n;
@@ -17,8 +17,8 @@ public:
 	bool inline switch_gear( int& idx );
 
 public:
-	Combinator( int k, int n );
-	bool operator() (vector< int >& v);
+	Combinator( int k, int n, vector< int >& gears );
+	bool next();
 };
 
 #endif // COMBINATOR_H

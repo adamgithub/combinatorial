@@ -34,7 +34,6 @@ bool Combinator::next ()
 	// Guard
 	gears.push_back( n );
 
-	gears.resize( k + 1 );
 	if(! turn_gear(curr_gear) ) {
 		if(! switch_gear( curr_gear ))
 			return false;

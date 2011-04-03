@@ -16,25 +16,25 @@ void inline Combinator::reset( int count )
 		gears[i] = i;
 }
 
-bool inline Combinator::turn_gear( int idx )
+bool inline Combinator::can_turn_gear( int idx )
 {
 	return gears[idx] + 1 < gears[idx+1];
 }
 
 bool inline Combinator::switch_gear( int& idx )
 {
-	while( ! turn_gear( idx ) )
+	while( ! can_turn_gear( idx ) )
 		idx += 1;
 
 	return idx < k;
 }
 
-bool Combinator::next ()
+bool Combinator::next()
 {
 	// Guard
 	gears.push_back( n );
 
-	if(! turn_gear(curr_gear) ) {
+	if(! can_turn_gear(curr_gear) ) {
 		if(! switch_gear( curr_gear ))
 			return false;
 

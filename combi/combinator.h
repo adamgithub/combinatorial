@@ -13,7 +13,7 @@ public:
 	int n;
 
 	void inline reset( int count );
-	bool inline turn_gear( int idx );
+	bool inline can_turn_gear( int idx );
 	bool inline switch_gear( int& idx );
 
 public:
